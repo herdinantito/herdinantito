@@ -9,12 +9,19 @@ class contoh1 extends BaseController
     public function index()
     {
         echo "selamat datang.. selamat belajar web programming";
+        //$this->load->view('view-latihan1');
+
     }
 
     public function penjumlahan($n1, $n2)
     {
-        $model = new model_latihan1(); // Membuat instance dari model
-        $hasil = $model->jumlah($n1, $n2); // Memanggil method jumlah dari model
-        echo "Hasil penjumlahan dari " . $n1 . " + " . $n2 . " = " . $hasil;
+        // $model = new model_latihan1();
+        // $hasil = model->jumlah($n1, $n2);
+        // $echo "hasil penjumlahan dari ". $n1 ."+". $n2."=". $hasil;
+        $model = new Model_latihan1();
+        $data['nilai1'] = $n1;
+        $data['nilai2'] = $n2;
+        $data['hasil'] = $model->jumlah($n1, $n2);
+        return view('view-latihan', $data);
     }
 }
